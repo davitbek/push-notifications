@@ -154,7 +154,7 @@ class BaseModel
         }
 
         $this->pdoVariables[] = $id;
-        $sql = 'UPDATE ' . $this->getTable() . '  SET ' . implode(', ' , $updated) . ' where id = ?';
+        $sql = 'UPDATE ' . $this->getTable() . '  SET ' . implode(', ', $updated) . ' where id = ?';
 
         $this->execute($sql);
         return true;

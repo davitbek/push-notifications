@@ -115,7 +115,7 @@ class PushNotificationController extends Controller
     {
         // TODO for proper solution need use database transactions and lock
         $notificationModel = new Notification();// TODO not good for test
-        $notifications = $notificationModel->newQuery()->where('status' , '!=' ,  Notification::STATUS_FINISHED)->get([
+        $notifications = $notificationModel->newQuery()->where('status', '!=', Notification::STATUS_FINISHED)->get([
             'id',
             'country_id',
             'title',
@@ -139,7 +139,7 @@ class PushNotificationController extends Controller
                 ],
             ])
             ->where(['expired' => 0])
-            ->whereIn('country_id' , $countryIds)
+            ->whereIn('country_id', $countryIds)
             ->get(['token', 'user_id', 'users.country_id']);
 
         $countryDevices = [];
@@ -241,7 +241,7 @@ class PushNotificationController extends Controller
         foreach ($array as $item) {
             $pluck[] = $item[$column] ?? null;
         }
-        return$pluck;
+        return $pluck;
     }
 
     public function updateLog($data)

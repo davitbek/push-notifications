@@ -25,8 +25,8 @@ final class Notifications extends AbstractMigration
                 'countries',
                 'id',
                 [
-                    'delete'=> 'SET_NULL',
-                    'update'=> 'NO_ACTION',
+                    'delete' => 'SET_NULL',
+                    'update' => 'NO_ACTION',
                     'constraint' => 'notifications_country_id',
                 ]
             )
