@@ -13,12 +13,13 @@ final class Devices extends AbstractMigration
             ->addColumn('token', 'string')
             ->addColumn('expired', 'boolean', ['default' => 0])
             ->addIndex(['expired'])
+            ->addIndex(['user_id'])
             ->addForeignKey(
                 'user_id',
                 'users',
                 'id',
                 [
-                    'delete'=> 'NO_ACTION',
+                    'delete'=> 'CASCADE',
                     'update'=> 'NO_ACTION',
                     'constraint' => 'devices_user_id',
                 ]

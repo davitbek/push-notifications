@@ -52,4 +52,5 @@ Thumbs.db
 *.wmv
 
 .env
+public/queue.json
 

@@ -9,14 +9,14 @@ final class Users extends AbstractMigration
     {
         $this->table('users')
             ->addColumn('name', 'string', ['limit' => 40])
-            ->addColumn('country_id', 'integer')
+            ->addColumn('country_id', 'integer', ['null' => true])
             ->addIndex(['country_id'])
             ->addForeignKey(
                 'country_id',
                 'countries',
                 'id',
                 [
-                    'delete'=> 'NO_ACTION',
+                    'delete'=> 'SET_NULL',
                     'update'=> 'NO_ACTION',
                     'constraint' => 'users_country_id',
                 ]
